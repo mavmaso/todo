@@ -1,24 +1,41 @@
-# README
+## Todo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=======
 
-Things you may want to cover:
+**Todo** é uma aplicação feita como teste para vaga de Dev.
 
-* Ruby version
+## Setup do Projeto
 
-* System dependencies
+### 
+Pré requisitos
 
-* Configuration
+ - Ter [Ruby](https://www.ruby-lang.org) versão 2.6.3 previamente instalado na máquina
+ - Ou Ter [Docker] na maquina
 
-* Database creation
 
-* Database initialization
+### Configurando e executando testes
 
-* How to run the test suite
+ - `bin/setup`
+ - `bundle exec rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Configurando via Docker
+ - `docker-compose build`
+ - `docker-compose run --rm app bin/setup`
+ - `docker-compose run --rm --service-ports app bash`
+ - `bundle exec rspec`
 
-* Deployment instructions
+### Executando a aplicação 'nativo' 
 
-* ...
+Após os passos de configuração executar o comando `rails server` e acessar pela
+url [http://localhost:3000/](http://localhost:3000/).
+
+#### Executando via Docker
+ - `docker-compose build`
+ - `docker-compose run --rm app bin/setup`
+ - `docker-compose run --rm app rails assets:precompile`
+ - `docker-compose up`
+
+
+### Principais contribuidores
+ 
+[mavmaso](https://github.com/mavmaso)
