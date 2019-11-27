@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    container_name: todo_app
+    hostname: todo_app
+    build: .
+    image: src_todo_app:latest
+    command: bash start.sh
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/todo'
