@@ -39,7 +39,7 @@ feature 'User crud task' do
         email: 'outro@mail.com',
         password: '123456'
     )
-    task = Task.create( description: 'teste', user: user_two.id )
+    task = Task.create( description: 'teste', user: user_two )
 
     login_as(user, :scope => :user)
     visit tasks_path
