@@ -1,6 +1,6 @@
-class CreateLists < ActiveRecord::Migration[5.2]
+class CreateTasks < ActiveRecord::Migration[5.2]
   def change
-    create_table :lists do |t|
+    create_table :tasks do |t|
       t.string :description
       t.boolean :check
       t.references :user, foreign_key: true
