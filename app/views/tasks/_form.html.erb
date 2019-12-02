@@ -1,0 +1,13 @@
+<%= simple_form_for(@task, html: { class: 'form-inline' }) do |f| %>
+  <div class="container">
+  <%= f.error_notification %>
+  </div>
+
+  <div class="container">
+  <%= f.input :description %>
+  </div>
+
+  <div class="container">
+  <%= f.submit 'Submit', class: 'btn btn-primary'%>
+  </div>
+<% end %>

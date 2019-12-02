@@ -1,7 +1,11 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: current_user.id)
+  end
+
+  def show
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -10,10 +14,12 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     if @task.save
-      
+      redirect_to @task, notice: 'Succefully created'
     else
-      
+      flash[:alert] = "Can't be submit"
+      render :new
     end
   end
 

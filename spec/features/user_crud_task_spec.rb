@@ -11,9 +11,10 @@ feature 'User crud task' do
     login_as(user, :scope => :user)
     visit new_task_path
     fill_in 'Description', with: task.description
+    click_on 'Submit'
 
+    expect(page).to have_content("Owner: #{user.email}")
     expect(page).to have_content(task.description)
-    expect(page).to have_content("Owner: #{task.user.email}")
   end
 
   scenario 'fail to create a new to do' do
@@ -26,6 +27,7 @@ feature 'User crud task' do
     login_as(user, :scope => :user)
     visit new_task_path
     fill_in 'Description', with: task.description
+    click_on 'Submit'
 
     expect(page).to have_content("can't be blank")
   end
@@ -46,6 +48,6 @@ feature 'User crud task' do
 
     expect(page).to_not have_content(task.description)
     expect(page).to_not have_content("Owner: #{task.user.email}")
-    expect(page).to have_content("user: #{user.email}")
+    expect(page).to have_content("User: #{user.email}")
   end
 end
