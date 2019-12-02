@@ -5,14 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Home</span></a>
-      <a class="nav-item nav-link" href="#">List</a>
+      <%= link_to 'Home', root_path, class:"nav-item nav-link" %>
+      <%= link_to 'Task', tasks_path, class:"nav-item nav-link" %>
       <% if !user_signed_in? %>
-      <%= link_to 'Log in', new_user_session_path, class: 'nav-item btn btn-outline-primary' %>
+        <%= link_to 'Log in', new_user_session_path, class: 'nav-item btn btn-outline-primary' %>
       <% end %>
       <% if user_signed_in? %>
         <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-item btn btn-outline-danger' %>
-        <a class="nav-item nav-link" href="#">Usuario: <%= current_user.email %></a>
+        <a class="nav-item nav-link" href="#">User: <%= current_user.email %></a>
       <% end %>
     </div>
   </div>
